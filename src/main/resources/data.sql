@@ -30,7 +30,7 @@ create table boa_account_details (
  ALTER TABLE boa_salary_account_details add account_balance BIGINT DEFAULT(0);
 
  insert into boa_salary_account_details (salary_account_number,organisation_Name,interest_rate_on_savings,interest_rate_on_fd,account_balance)
-  values (600568058744,'Google',7.30,7.5,89000.0);
+  values (600568058742,'Google',7.30,7.5,89000.0);
 
 
  insert into boa_account_details (account_number,account_holder_name,account_type,mode_of_operation,
