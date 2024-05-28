@@ -23,7 +23,7 @@ create table boa_account_details (
  organisation_Name varchar(255),
  interest_rate_on_savings DECIMAL(4,2),
  interest_rate_on_fd DECIMAL(4,2),
- account_balance BIGINT DEFAULT(0),
+ account_balance DECIMAL(20,2) DEFAULT(0),
  foreign key (salary_account_number) references boa_account_details(account_number)
  );
 
@@ -61,3 +61,8 @@ insert into account_code_type (account_type_code,account_type) values (14,'Joint
 insert into account_code_type (account_type_code,account_type) values (15,'Senior Citizen');
 insert into account_code_type (account_type_code,account_type) values (16,'Pension');
 insert into account_code_type (account_type_code,account_type) values (17,'Minor');
+
+sudo /usr/local/mysql/support-files/mysql.server start
+
+sudo /usr/local/mysql/support-files/mysql.server stop
+sudo /usr/local/mysql/support-files/mysql.server restart

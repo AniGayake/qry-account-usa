@@ -1,6 +1,6 @@
 package com.bank.of.america.qry.account.usa.web;
 
-import com.bank.of.america.qry.account.usa.bo.SavingAccountDetails;
+import com.bank.of.america.qry.account.usa.bo.SalaryAccountDetails;
 import com.bank.of.america.qry.account.usa.service.SalaryAccountDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +19,8 @@ public class AccountEnquiryController {
         this.salaryAccountDetailsService=salaryAccountDetailsService;
     }
     @GetMapping("account/{accountNumber}")
-    public SavingAccountDetails getAccountDetails(@PathVariable(name = "accountNumber") BigInteger accountNumber){
-        Optional<SavingAccountDetails> savingAccountDetails = salaryAccountDetailsService.getSalaryAccountDetails(accountNumber);
+    public SalaryAccountDetails getAccountDetails(@PathVariable(name = "accountNumber") BigInteger accountNumber){
+        Optional<SalaryAccountDetails> savingAccountDetails = salaryAccountDetailsService.getSalaryAccountDetails(accountNumber);
         return savingAccountDetails.orElse(null);
     }
 
