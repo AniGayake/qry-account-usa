@@ -27,11 +27,14 @@ create table boa_account_details (
  foreign key (salary_account_number) references boa_account_details(account_number)
  );
 
- ALTER TABLE boa_salary_account_details add account_balance BIGINT DEFAULT(0);
+CREATE TABLE BOA_TRANSACTION_DETAILS (account_number BIGINT(12) NOT NULL, transaction_reference_number BIGINT(16) NOT NULL PRIMARY KEY,
+transaction_date_time DATETIME, transaction_amount DECIMAL(20,2),transaction_details VARCHAR(255),
+FOREIGN KEY (account_number) references boa_account_details(account_number)
+);
 
- insert into boa_salary_account_details (salary_account_number,organisation_Name,interest_rate_on_savings,interest_rate_on_fd,account_balance)
-  values (600568058742,'Google',7.30,7.5,89000.0);
 
+insert into BOA_TRANSACTION_DETAILS (account_number,transaction_reference_number,transaction_date_time,transaction_amount,transaction_details)
+values (600568058742,2024052820240528,'2024-05-28 03:02:03',250.50,'Money received from UPI');
 
  insert into boa_account_details (account_number,account_holder_name,account_type,mode_of_operation,
  account_description,bank_name,branch_code,branch_name,bank_city,bank_state,bank_country,bank_pincode,ifsc_code,
@@ -40,6 +43,10 @@ create table boa_account_details (
  values (600568058742,'Aniruddha Gayake','Salary','Single','  ','Bank of America',
  'BOA0000891','Charholi Phata','Pune','Maharashtra','India',412105,'BOA0000891','INR','9168151552','+91'
  );
+
+  insert into boa_salary_account_details (salary_account_number,organisation_Name,interest_rate_on_savings,interest_rate_on_fd,account_balance)
+   values (600568058742,'Google',7.30,7.5,89000.0);
+
 
 
 create table id_mapping (account_number BIGINT(12) NOT NULL,
