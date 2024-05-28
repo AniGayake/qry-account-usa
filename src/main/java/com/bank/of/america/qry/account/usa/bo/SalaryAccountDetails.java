@@ -7,15 +7,25 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "BOA_SALARY_ACCOUNT_DETAILS")
 @PrimaryKeyJoinColumn(name = "salary_account_number")
-public class SavingAccountDetails extends AccouontDetails{
+public class SalaryAccountDetails extends AccouontDetails{
 
     private String organisationName;
     @Column(name = "interest_rate_on_savings")
     private BigDecimal rateOfInterestOnSalaryAccount;
     @Column(name = "interest_rate_on_fd")
     private BigDecimal rateOfInterestOnFD;
+    @Column(name = "account_balance")
+    private BigDecimal balance;
 
-    public SavingAccountDetails() {
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public SalaryAccountDetails() {
     }
 
     public String getOrganisationName() {
@@ -48,6 +58,7 @@ public class SavingAccountDetails extends AccouontDetails{
                 "organisationName='" + organisationName + '\'' +
                 ", rateOfInterestOnSalaryAccount=" + rateOfInterestOnSalaryAccount +
                 ", rateOfInterestOnFD=" + rateOfInterestOnFD +
+                ", balance=" + balance +
                 '}';
     }
 }
